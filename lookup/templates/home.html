@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+  {% block content %}
+  <br>
+  {% if api %}
+    {% if api == "Error...." %}
+      <h3>There was an error, please try again</h3>
+    {% elif api == 'WrongInput' %}
+      <h3>Please Enter a Valid Input</h3>
+    {% else %}
+  <div class="jumbotron {{ category_color }}">
+    <h1 class="display-4">{{api.0.Category.Name}}</h1>
+    <p class="lead">Current {{api.0.ReportingArea}} Air Quality:{{api.0.AQI}}</p>
+
+    {{ category_description}}
+
+  </div>
+    <br>
+      {% endif %}
+    {% endif %}
+  {% endblock %}
